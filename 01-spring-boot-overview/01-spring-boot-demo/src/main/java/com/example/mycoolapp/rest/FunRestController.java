@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.mycoolapp.Coach;
+import com.example.mycoolapp.common.Coach;
 
 // Converts java objects into json responses for the web browser to use.
 @RestController

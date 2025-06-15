@@ -36,7 +36,9 @@ public class FunRestController {
     // private field for dependency which is housed in another class 
     // The actual value is housed inside of Cricketcoach
     // Coach is an interface
-    private Coach myCoach;
+    // private Coach myCoach;
+
+    // private Coach anotherCoach;
 
     // Defining constructor for dependency injection
     // when there is only 1 constructor autowired is optional
@@ -44,14 +46,30 @@ public class FunRestController {
     // The classname is the same but must start with a lowercase letter: BaseballCoach becomes baseballCoach
     // @Qualifier has a higher priority than @Primary
     // @Qualifier("cricketCoach")
-    @Autowired
+    // @Autowired
+    // public FunRestController(@Qualifier("cricketCoach")Coach theCoach,
+    //                          @Qualifier("cricketCoach") Coach secondCoach){
+    //     // GetClass a method inherited by object class
+    //     // getsimple name returns just the class name
+    //     System.out.println("In constructor: " + getClass().getSimpleName());
+    //     myCoach = theCoach;
+    //     anotherCoach = secondCoach;
+    // }
+    // =======================================================================
+
+    private Coach myCoach;
+
     public FunRestController(@Qualifier("cricketCoach")Coach theCoach){
         // GetClass a method inherited by object class
         // getsimple name returns just the class name
         System.out.println("In constructor: " + getClass().getSimpleName());
         myCoach = theCoach;
     }
-    // =======================================================================
+
+    // @GetMapping("/check")
+    // public String check(){
+    //     return "Comparing beans: mycoach == anotherCoach: " + (myCoach == anotherCoach);
+    // }
 
     //exposing new endpoint for using the values from the properties file
     @GetMapping("/teaminfo")

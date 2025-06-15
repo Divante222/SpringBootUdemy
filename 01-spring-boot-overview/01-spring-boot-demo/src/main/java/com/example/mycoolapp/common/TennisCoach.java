@@ -6,6 +6,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach{
 
+    // GetClass a method inherited by object class
+    // getsimple name returns just the class name
+    public TennisCoach(){
+        System.out.println("In constructor: " + getClass().getSimpleName());
+    }
+
     @Override
     public String getDailyWorkout() {
         return "Practice your backhand volley";

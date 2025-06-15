@@ -43,8 +43,12 @@ public class FunRestController {
     // @Qualifier specifies the class you want to use if multiple classes are being used for injection
     // The classname is the same but must start with a lowercase letter: BaseballCoach becomes baseballCoach
     // @Qualifier has a higher priority than @Primary
+    // @Qualifier("cricketCoach")
     @Autowired
-    public FunRestController(@Qualifier("cricketCoach") Coach theCoach){
+    public FunRestController(@Qualifier("cricketCoach")Coach theCoach){
+        // GetClass a method inherited by object class
+        // getsimple name returns just the class name
+        System.out.println("In constructor: " + getClass().getSimpleName());
         myCoach = theCoach;
     }
     // =======================================================================

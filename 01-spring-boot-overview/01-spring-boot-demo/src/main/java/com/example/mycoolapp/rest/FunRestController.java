@@ -1,6 +1,7 @@
 package com.example.mycoolapp.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,16 +20,34 @@ public class FunRestController {
     @Value("${team.name}")
     private String teamName;
 
+    // Setter injection
+    // =======================================================================
+    // Coach is an interface
+    // private Coach myCoach;
+    // // Because this is autowired it can be used for dependency injection the method name does not matter
+    // @Autowired
+    // public void setCoach(Coach theCoach){
+    //     this.myCoach = theCoach;
+    // }
+    // =======================================================================
+
+    // Constructor injection
+    // =======================================================================
     // private field for dependency which is housed in another class 
     // The actual value is housed inside of Cricketcoach
+    // Coach is an interface
     private Coach myCoach;
 
     // Defining constructor for dependency injection
     // when there is only 1 constructor autowired is optional
+    // @Qualifier specifies the class you want to use if multiple classes are being used for injection
+    // The classname is the same but must start with a lowercase letter: BaseballCoach becomes baseballCoach
+    // @Qualifier has a higher priority than @Primary
     @Autowired
-    public FunRestController(Coach theCoach){
+    public FunRestController(@Qualifier("cricketCoach") Coach theCoach){
         myCoach = theCoach;
     }
+    // =======================================================================
 
     //exposing new endpoint for using the values from the properties file
     @GetMapping("/teaminfo")

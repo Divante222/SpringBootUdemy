@@ -59,7 +59,7 @@ public class FunRestController {
 
     private Coach myCoach;
 
-    public FunRestController(@Qualifier("cricketCoach")Coach theCoach){
+    public FunRestController(@Qualifier("aquatic")Coach theCoach){
         // GetClass a method inherited by object class
         // getsimple name returns just the class name
         System.out.println("In constructor: " + getClass().getSimpleName());

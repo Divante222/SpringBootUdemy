@@ -31,17 +31,17 @@ public class CricketCoach implements Coach{
         System.out.println("In constructor: " + getClass().getSimpleName());
     }
 
-    // postconstruct tells java to run this method after the class has been constructed
-    @PostConstruct
-    public void doMyStartupStuff(){
-        System.out.println("In do my starter stuff method: " + getClass().getSimpleName());
-    }
+    // // postconstruct tells java to run this method after the class has been constructed
+    // @PostConstruct
+    // public void doMyStartupStuff(){
+    //     System.out.println("In do my starter stuff method: " + getClass().getSimpleName());
+    // }
 
-    // This is a cleanup method or destroy method
-    @PreDestroy
-    public void doMyCleanupStuff(){
-        System.out.println("In do my cleanup stuff method: " + getClass().getSimpleName());
-    }
+    // // This is a cleanup method or destroy method
+    // @PreDestroy
+    // public void doMyCleanupStuff(){
+    //     System.out.println("In do my cleanup stuff method: " + getClass().getSimpleName());
+    // }
 
     // Must overide the classes needed for implementation in the superclass
     @Override
